@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Botão de menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon>account_balance</mat-icon>
+    <span>
+        BANTADS
+    </span>
+    <span class="spacer"></span>
+    <div class="actions">
+        <button *ngFor="let action of headerActions" mat-stroked-button (click)="navigate(action.page)">
+            <mat-icon>{{action.icon}}</mat-icon>
+            {{action.label}}
+        </button>
+    </div>
+</mat-toolbar>

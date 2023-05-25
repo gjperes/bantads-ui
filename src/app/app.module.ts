@@ -4,17 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderBarComponent } from './components/header-bar/header-bar.component';
+import { AutenticacaoModule } from './features/autenticacao/autenticacao.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    HeaderBarComponent,
+    AutenticacaoModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
