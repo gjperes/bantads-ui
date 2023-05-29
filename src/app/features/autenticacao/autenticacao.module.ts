@@ -5,16 +5,25 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EntrarComponent } from './entrar/entrar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCommonModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [EntrarComponent, CadastroComponent],
   imports: [
     CommonModule,
+    MatCommonModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressBarModule,
     MatInputModule,
-    FormsModule
+    MatIconModule,
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AutenticacaoModule { }

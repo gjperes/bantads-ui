@@ -1,16 +1,49 @@
-<div class="login-container">
-  <mat-card>
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-content>
-      <form (ngSubmit)="login()">
-        <mat-form-field>
-          <input matInput type="email" placeholder="Nome de usuário" [(ngModel)]="email" name="email" required>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="password" placeholder="Senha" [(ngModel)]="senha" name="senha" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Entrar</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <mat-icon>attach_money</mat-icon>
+      <span>
+        Acesse sua conta no BANTADS
+      </span>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="autenticacaoForm" (ngSubmit)="login()">
+      <mat-form-field appearance="outline">
+        <mat-label>Preencha o e-mail</mat-label>
+        <input matInput type="email" id="email" placeholder="seuemail@exemplo.com" formControlName="email" name="email"
+          required>
+        <mat-error *ngIf="email?.hasError('email') && !email?.hasError('required')">
+          O e-mail inserido é inválido
+        </mat-error>
+        <mat-error *ngIf="email?.hasError('required') && !email?.hasError('email')">
+          O e-mail é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <mat-form-field appearance="outline">
+        <mat-label>Preencha a senha</mat-label>
+        <input matInput [type]=" exibirSenha ? 'text' : 'password'" id="senha" placeholder="Sua senha"
+          formControlName="senha" name="senha" required>
+        <button mat-icon-button type="button" matSuffix (click)="exibirSenha = !exibirSenha">
+          <mat-icon>{{exibirSenha ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="senha?.hasError('minlength') && !senha?.hasError('required')">
+          A senha precisa ter mais que <strong>6 caracteres</strong>
+        </mat-error>
+        <mat-error *ngIf="senha?.hasError('required') && !senha?.hasError('minlength')">
+          A senha é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="autenticacaoForm.invalid">
+        <mat-icon>exit_to_app</mat-icon>
+        {{ carregando ? 'Aguarde...' : 'Entrar' }}
+      </button>
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <mat-progress-bar *ngIf="carregando" mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
