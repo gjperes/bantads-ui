@@ -10,6 +10,8 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { DadosPessoaisFormComponent } from 'src/app/components/dados-pessoais-form/dados-pessoais-form.component';
 
 @NgModule({
   declarations: [EntrarComponent, CadastroComponent],
@@ -22,8 +24,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatIconModule,
     MatDividerModule,
+    MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+    DadosPessoaisFormComponent,
+  ],
 })
 export class AutenticacaoModule { }

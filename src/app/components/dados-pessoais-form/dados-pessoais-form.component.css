@@ -16,10 +16,16 @@ mat-form-field {
     margin-top: 1rem;
 }
 
-button[type="submit"] {
-    font-size: 1rem;
-    width: auto;
-    min-width: 25%;
-    align-self: center;
-    margin-top: 0.75rem;
+mat-form-field>input {
+    display: flex;
+    gap: 1rem;
+}
+
+input {
+    max-width: 250px;
+}
+
+.next-btn {
+    width: 35%;
+    margin-top: 2rem;
 }

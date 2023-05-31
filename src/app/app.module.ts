@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,12 +8,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
 import { AutenticacaoModule } from './features/autenticacao/autenticacao.module';
+import { registerLocaleData } from '@angular/common';
+import locale from '@angular/common/locales/pt';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+registerLocaleData(locale, 'pt');
+export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -21,6 +28,9 @@ import { AutenticacaoModule } from './features/autenticacao/autenticacao.module'
     HttpClientModule,
     HeaderBarComponent,
     AutenticacaoModule
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
   bootstrap: [AppComponent]
 })

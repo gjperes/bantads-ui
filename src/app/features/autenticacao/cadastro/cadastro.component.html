@@ -1,1 +1,33 @@
-<p>cadastro works!</p>
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>person_add</mat-icon>
+        </div>
+        <mat-card-title>Cadastre-se</mat-card-title>
+        <mat-card-subtitle>Abra agora sua conta no BANTADS</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step *ngFor="let step of steps;" [label]="step.label">
+                <ng-template [ngComponentOutlet]="step.component"></ng-template>
+                <div class="nav-btn">
+                    <button mat-stroked-button matStepperPrevious>
+                        <mat-icon>arrow_back</mat-icon>
+                        Voltar
+                    </button>
+                    <button mat-raised-button color="primary" matStepperNext>
+                        <mat-icon>arrow_forward</mat-icon>
+                        Próximo
+                    </button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </mat-card-content>
+
+    <mat-card-footer>
+        <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
