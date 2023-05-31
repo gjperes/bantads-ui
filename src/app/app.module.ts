@@ -12,8 +12,8 @@ import { registerLocaleData } from '@angular/common';
 import locale from '@angular/common/locales/pt';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 registerLocaleData(locale, 'pt');
-export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [

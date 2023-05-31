@@ -11,16 +11,20 @@
 
     <mat-card-content>
         <mat-stepper [linear]="isLinear" #stepper>
-            <mat-step *ngFor="let step of steps;" [label]="step.label">
+            <mat-step *ngFor="let step of steps; let i = index" [label]="step.label">
                 <ng-template [ngComponentOutlet]="step.component"></ng-template>
                 <div class="nav-btn">
-                    <button mat-stroked-button matStepperPrevious>
+                    <button *ngIf="i > 0" mat-stroked-button matStepperPrevious>
                         <mat-icon>arrow_back</mat-icon>
                         Voltar
                     </button>
-                    <button mat-raised-button color="primary" matStepperNext>
+                    <button *ngIf="i < (steps.length - 1)" mat-raised-button color="primary" matStepperNext>
                         <mat-icon>arrow_forward</mat-icon>
                         Próximo
+                    </button>
+                    <button *ngIf="i === (steps.length - 1)" mat-raised-button color="primary" matStepperNext>
+                        <mat-icon>save</mat-icon>
+                        Cadastrar
                     </button>
                 </div>
             </mat-step>

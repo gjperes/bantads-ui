@@ -12,7 +12,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Informe seu nome</mat-label>
-        <input matInput type="text" id="nome" placeholder="Primeiro nome" formControlName="nome" name="nome" required>
+        <input matInput type="text" id="nome" placeholder="Primeiro Nome" formControlName="nome" name="nome" required>
         <mat-error *ngIf="nome?.hasError('minlength') && !nome?.hasError('required')">
             O nome informado é muito curto
         </mat-error>
@@ -38,11 +38,12 @@
             mask="000.000.000-00" 
             type="text" 
             id="cpf" 
-            placeholder="000.000.000-00" 
+            placeholder="Ex.: 000.000.000-00" 
             formControlName="cpf"
             name="cpf" 
             required
         >
+        <mat-hint align="end">{{cpf?.value?.length}} / 11</mat-hint>
         <mat-error *ngIf="cpf?.hasError('length') && !cpf?.hasError('required')">
             O CPF informado está incompleto
         </mat-error>
@@ -57,11 +58,12 @@
             mask="(00) 00000-0000"
             type="text" 
             id="telefone" 
-            placeholder="(00) 00000-0000" 
+            placeholder="Ex.: (00) 00000-0000" 
             formControlName="telefone"
             name="telefone" 
             required
         >
+        <mat-hint align="end">{{telefone?.value?.length}} / 11</mat-hint>
         <mat-error *ngIf="telefone?.hasError('length') && !telefone?.hasError('required')">
             O telefone informado está incompleto
         </mat-error>
@@ -69,9 +71,10 @@
             O telefone é <strong>obrigatório</strong>
         </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" floatLabel="always">
         <mat-label>Informe seu salário atual</mat-label>
-        <input matInput type="text" id="salario" placeholder="0" formControlName="salario" name="salario" required>
+        <span matTextPrefix>R$&nbsp;</span>
+        <input matInput id="salario" placeholder="1.200,00" formControlName="salario" name="salario" required>
         <mat-error *ngIf="salario?.hasError('required')">
             O salario é <strong>obrigatório</strong>
         </mat-error>

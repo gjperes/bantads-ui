@@ -9,3 +9,8 @@ mat-icon:first-child {
 .actions button {
     margin: 0 1rem;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}

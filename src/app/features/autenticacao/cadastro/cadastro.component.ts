@@ -16,5 +16,5 @@ export class CadastroComponent {
     { label: 'Endereço', component: EnderecoFormComponent },
   ];
 
-  constructor() {}
+  constructor() { }
 }

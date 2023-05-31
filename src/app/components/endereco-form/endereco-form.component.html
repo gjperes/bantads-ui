@@ -1,1 +1,67 @@
-<p>endereco-form works!</p>
+<form [formGroup]="enderecoForm">
+    <label>Selecione o tipo de endereço</label>
+    <mat-radio-group formControlName="tipoEndereco">
+        <mat-radio-button *ngFor="let tipo of tiposEndereco" [value]="tipo">{{tipo}}</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="outline">
+        <mat-label>Informe o CEP</mat-label>
+        <input matInput mask="00000-000" type="text" id="cep" placeholder="Ex.: 00000-000" formControlName="cep"
+            name="cep" required>
+        <mat-hint align="end">{{cep?.value?.length}} / 8</mat-hint>
+        <mat-error *ngIf="cep?.hasError('required')">
+            O CEP é <strong>obrigatório</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Informe o logradouro</mat-label>
+        <input matInput type="text" id="logradouro" placeholder="Ex.: Marechal Deodoro" formControlName="logradouro"
+            name="logradouro" required>
+        <mat-error *ngIf="logradouro?.hasError('minlength') && !logradouro?.hasError('required')">
+            O logradouro informado é muito curto
+        </mat-error>
+        <mat-error *ngIf="logradouro?.hasError('required') && !logradouro?.hasError('minlength')">
+            O logradouro é <strong>obrigatório</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Informe o número</mat-label>
+        <input matInput id="numero" placeholder="Ex.: 12" formControlName="numero" name="numero" required>
+        <mat-error *ngIf="numero?.hasError('min') && !numero?.hasError('required')">
+            O número informado é muito curto
+        </mat-error>
+        <mat-error *ngIf="numero?.hasError('required') && !numero?.hasError('min')">
+            O número é <strong>obrigatório</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Informe o complemento</mat-label>
+        <input matInput type="text" id="complemento" placeholder="Ex.: Apto. 12" formControlName="complemento"
+            name="complemento">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Informe o bairro</mat-label>
+        <input matInput type="text" id="bairro" placeholder="Ex.: Centro" formControlName="bairro" name="bairro"
+            required>
+        <mat-error *ngIf="bairro?.hasError('required')">
+            O bairro é <strong>obrigatório</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Selecione a cidade</mat-label>
+        <mat-select id="cidade" name="cidade" formControlName="cidade" required>
+            <mat-option value="option">Option</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cidade?.hasError('required')">
+            A cidade é <strong>obrigatória</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Selecione o estado</mat-label>
+        <mat-select id="estado" name="estado" formControlName="estado" required>
+            <mat-option value="option">Option</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cidade?.hasError('required')">
+            O estado é <strong>obrigatório</strong>
+        </mat-error>
+    </mat-form-field>
+</form>

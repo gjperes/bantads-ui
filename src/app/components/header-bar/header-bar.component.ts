@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderAction } from 'src/app/shared/interfaces';
 
@@ -11,7 +11,7 @@ import { HeaderAction } from 'src/app/shared/interfaces';
   templateUrl: './header-bar.component.html',
   styleUrls: ['./header-bar.component.css'],
   standalone: true,
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, CommonModule]
+  imports: [MatToolbarModule, MatIconModule, MatButtonModule, CommonModule, RouterModule]
 })
 export class HeaderBarComponent {
 

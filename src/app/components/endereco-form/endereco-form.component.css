@@ -1,0 +1,30 @@
+mat-card {
+    margin: 2rem 25vw;
+}
+
+mat-card-content {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    margin-top: 1rem;
+}
+
+mat-form-field>input {
+    display: flex;
+    gap: 1rem;
+}
+
+mat-radio-button {
+    margin-right: 1rem;
+}
+
+input {
+    max-width: 250px;
+}

@@ -6,7 +6,7 @@ import { AutenticacaoRequest } from '../shared/models/autenticacao-request';
   providedIn: 'root'
 })
 export class AuthService {
-  API_URL = 'http://localhost:8080/api/v1/auth';
+  API_URL = 'http://localhost:8080/api/auth';
   LOCALSTORAGE_KEY = 'token';
 
   constructor(private http: HttpClient) { }
